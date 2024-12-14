@@ -1,0 +1,13 @@
+cask "figma"
+cask "openvpn-connect"
+cask "visual-studio-code"
+cask "zoom"
+
+brew "argo"
+brew "awscli"
+brew "colima"
+brew "direnv"
+brew "kubectx"
+brew "kubernetes-cli"
+brew "kustomize"
+brew "sops"

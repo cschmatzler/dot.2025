@@ -1,0 +1,58 @@
+# Taps
+tap "homebrew/cask-fonts"
+tap "noborus/tap"
+
+# Applications
+cask "1password"
+cask "kitty"
+cask "lunar"
+cask "orbstack"
+cask "raycast"
+cask "setapp"
+cask "shortcat"
+mas "Yubico Authenticator", id: 1497506650
+
+# Safari Extensions
+mas "1Password for Safari", id: 1569813296
+mas "Super Agent", id: 1568262835
+mas "Wipr", id: 1320666476
+
+# Fonts
+cask "font-commit-mono-nerd-font"
+
+# Utilities
+brew "atuin"
+brew "bat"
+brew "docker"
+brew "docker-buildx"
+brew "docker-compose"
+brew "docker-credential-helper"
+brew "eza"
+brew "fd"
+brew "fish"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "git-delta"
+brew "glow"
+brew "go-task"
+brew "gsed"
+brew "httpie"
+brew "jq"
+brew "k9s"
+brew "lazydocker"
+brew "lazygit"
+brew "libyaml"
+brew "mas"
+brew "mise"
+brew "neovim"
+brew "noborus/tap/ov"
+brew "openssh"
+brew "ripgrep"
+brew "sd"
+brew "starship"
+brew "wget"
+brew "yadm"
+brew "zellij"
+brew "zk"
+brew "zoxide"

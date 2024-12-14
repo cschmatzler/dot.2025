@@ -1,0 +1,18 @@
+add_newline = true
+command_timeout = 750
+
+format = """
+$directory $git_branch $git_status $git_metrics $kubernetes$line_break$character
+"""
+
+[git_branch]
+format = "[ $branch]($style) "
+
+[git_metrics]
+disabled = false
+added_style = 'bold green'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[kubernetes]
+disabled = false
+format = '[ 󱃾 $context]($style) '

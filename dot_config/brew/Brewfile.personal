@@ -1,0 +1,12 @@
+tap "planetscale/tap"
+
+# Applications
+cask "1password-cli"
+cask "affinity-photo"
+cask "daisydisk"
+cask "plex"
+cask "tailscale"
+
+# Utilities
+brew "hcloud"
+brew "flyctl"

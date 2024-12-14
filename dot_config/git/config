@@ -1,0 +1,60 @@
+[include]
+  path = ~/.config/git/catppuccin.gitconfig
+
+[user]
+  name = Christoph Schmatzler
+  email = christoph@medium.place
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOoTwh9PyFzN7YRmmPrEOyAO92NxlgqkORVO7rn5EKH1
+
+[core]
+  editor = nvim
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[commit]
+  gpgsign = true
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[fetch]
+  prune = true
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true
+  default = simple
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+  tool = difftastic
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
+
+[delta]
+  features = catppuccin-latte
+
+[rerere]
+	enabled = true
+
+[includeIf "gitdir:~/Development/work/"]
+  path = "~/.config/git/work.config"
+[init]
+	defaultBranch = main
