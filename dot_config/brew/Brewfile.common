@@ -23,6 +23,7 @@ cask "font-commit-mono-nerd-font"
 # Utilities
 brew "atuin"
 brew "bat"
+brew "chezmoi"
 brew "docker"
 brew "docker-buildx"
 brew "docker-compose"

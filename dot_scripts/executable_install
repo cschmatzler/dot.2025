@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+source $HOME/.scripts/install.d/brew.sh
+source $HOME/.scripts/install.d/bat.sh
+source $HOME/.scripts/install.d/mise.sh
+source $HOME/.scripts/install.d/macos.sh
