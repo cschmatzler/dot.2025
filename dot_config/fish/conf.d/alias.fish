@@ -1,7 +1,6 @@
 alias .. "cd .."
 alias ... "cd ../.."
 
-alias a aerc
 alias b bat
 alias d docker
 alias e eza
@@ -12,7 +11,6 @@ alias kx kubectx
 alias ld lazydocker
 alias lg lazygit
 alias m mise
-alias t task
 alias tf terraform
 alias v nvim
 alias vim nvim

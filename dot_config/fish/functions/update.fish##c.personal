@@ -1,5 +1,0 @@
-function update --description 'Update everything'
-  ~
-  and echo "Running bootstrap script..."
-  and bootstrap personal
-end

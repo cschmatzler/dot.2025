@@ -1,1 +1,0 @@
-update.fish##c.personal
