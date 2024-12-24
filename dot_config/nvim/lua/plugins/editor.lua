@@ -24,19 +24,22 @@ return {
 		},
 	},
 	{
-		"mbbill/undotree",
-		keys = {
-			{
-				"<leader>cu",
-				vim.cmd.UndotreeToggle,
-				desc = "Undotree",
+		"ibhagwan/fzf-lua",
+		opts = {
+			oldfiles = {
+				include_current_session = true,
+			},
+			previewers = {
+				builtin = {
+					syntax_limit_b = 1024 * 100,
+				},
+			},
+			grep = {
+				rg_glob = true,
+				glob_flag = "--iglob",
+				glob_separator = "%s%-%-",
 			},
 		},
-	},
-	{
-		"mhanberg/output-panel.nvim",
-		event = "VeryLazy",
-		opts = {},
 	},
 	{
 		"echasnovski/mini.move",

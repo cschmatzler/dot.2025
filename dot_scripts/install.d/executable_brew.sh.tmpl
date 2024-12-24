@@ -2,7 +2,7 @@
 
 # Installing and upgrading brew packages...
 
-{{- if .personal }}
+{{- if .personal | default false }}
 cat $HOME/.config/brew/Brewfile.common $HOME/.config/brew/Brewfile.personal | brew bundle cleanup --force --file=-
 cat $HOME/.config/brew/Brewfile.common $HOME/.config/brew/Brewfile.personal | brew bundle --file=-
 {{ else }}
