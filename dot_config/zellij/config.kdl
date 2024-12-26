@@ -1,4 +1,5 @@
 default_shell "/opt/homebrew/bin/fish"
+default_layout "compact"
 theme "catppuccin-latte"
 pane_frames false
 on_force_close "quit"
