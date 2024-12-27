@@ -1,0 +1,6 @@
+command = /opt/homebrew/bin/fish
+window-padding-x = 15
+window-padding-y = 5
+font-family = CommitMono Nerd Font
+font-size = 15
+theme = catppuccin-latte

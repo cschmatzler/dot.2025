@@ -11,6 +11,7 @@ alias kx kubectx
 alias ld lazydocker
 alias lg lazygit
 alias m mise
+alias mr "mise run"
 alias tf terraform
 alias v nvim
 alias vim nvim
