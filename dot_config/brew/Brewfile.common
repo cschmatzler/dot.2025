@@ -1,5 +1,6 @@
 # Taps
 tap "noborus/tap"
+tap "fish-shell/fish-beta-4"
 
 # Applications
 cask "1password"
@@ -17,7 +18,6 @@ mas "Super Agent", id: 1568262835
 mas "Wipr", id: 1320666476
 
 # Fonts
-cask "font-commit-mono-nerd-font"
 cask "font-iosevka-nerd-font"
 
 # Utilities
@@ -46,7 +46,7 @@ brew "lazygit"
 brew "libyaml"
 brew "mas"
 brew "mise"
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 brew "noborus/tap/ov"
 brew "openssh"
 brew "ripgrep"
