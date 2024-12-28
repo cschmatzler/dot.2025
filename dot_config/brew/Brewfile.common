@@ -1,5 +1,4 @@
 # Taps
-tap "homebrew/cask-fonts"
 tap "noborus/tap"
 
 # Applications
@@ -19,6 +18,7 @@ mas "Wipr", id: 1320666476
 
 # Fonts
 cask "font-commit-mono-nerd-font"
+cask "font-iosevka-nerd-font"
 
 # Utilities
 brew "atuin"
