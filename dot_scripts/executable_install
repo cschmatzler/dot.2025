@@ -2,7 +2,82 @@
 
 set -e
 
+if ! command -v brew &> /dev/null; then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+echo "Installing homebrew packages..."
+brew update
+brew upgrade
+
+read -n1 -p "[P]ersonal or [W]ork? " systemtype
+case $systemtype in
+  p|P) 
+    echo "[data]
+personal = true
+work = false" > ~/.config/chezmoi/chezmoi.toml
+    ;;
+  w|W) 
+    echo "[data]
+personal = false
+work = true" > ~/.config/chezmoi/chezmoi.toml
+    ;;
+  *) 
+    echo "Invalid option, skipping"
+    ;;
+esac
+
 source $HOME/.scripts/install.d/brew.sh
-source $HOME/.scripts/install.d/bat.sh
-source $HOME/.scripts/install.d/mise.sh
-source $HOME/.scripts/install.d/macos.sh
+
+read -n1 -p "Cleanup packages [Y]es or [No]?" cleanup
+case $cleanup in
+  y|Y) 
+    source $HOME/.scripts/install.d/brew_cleanup.sh
+    ;;
+  *) 
+    echo "Skipping"
+    ;;
+esac
+
+mkdir -p ~/Library/LaunchAgents
+
+echo "Setting up dock..."
+dockutil --remove all --no-restart
+dockutil --add "/Applications/Safari.app" --no-restart
+dockutil --add "/Applications/Ghostty.app" --no-restart
+dockutil --add "/System/Applications/Utilities/Activity Monitor.app" --no-restart
+dockutil --add "/System/Applications/System Settings.app" --no-restart
+
+dockutil --add '/Applications' --view grid --display folder --no-restart
+mkdir -p "~/Development/"
+dockutil --add '~/Development' --view list --display folder --no-restart
+dockutil --add '~/Documents' --view list --display folder --no-restart
+dockutil --add '~/Downloads' --view list --display folder
+
+echo "Updating macOS settings..."
+
+# Avoid the creation of .DS_Store files on network volumes or USB drives
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Enable three-finger drag
+defaults write com.apple.AppleMultitouchTrackpad DragLock -bool false
+defaults write com.apple.AppleMultitouchTrackpad Dragging -bool false
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+
+# Dock tweaks
+defaults write com.apple.dock orientation -string left # Move dock to left side of screen
+defaults write com.apple.dock show-recents -bool FALSE # Disable "Show recent applications in dock"
+defaults write com.apple.Dock showhidden -bool TRUE    # Show hidden applications as translucent
+killall Dock
+
+# Finder tweaks
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true            # Show all filename extensions
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false # Disable warning when changing a file extension
+defaults write com.apple.finder FXPreferredViewStyle Clmv                  # Use column view
+defaults write com.apple.finder AppleShowAllFiles -bool true               # Show hidden files
+defaults write com.apple.finder ShowPathbar -bool true                     # Show path bar
+defaults write com.apple.finder ShowStatusBar -bool true                   # Show status bar
+killall Finder
