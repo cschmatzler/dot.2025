@@ -1,76 +1,53 @@
 return {
 	-- Swift
 	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
-				"swift",
-			})
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				sourcekit = {
-					capabilities = {
-						workspace = {
-							didChangeWatchedFiles = {
-								dynamicRegistration = true,
-							},
-						},
+		{
+			"nvim-treesitter/nvim-treesitter",
+			opts = function(_, opts)
+				opts.ensure_installed = opts.ensure_installed or {}
+				vim.list_extend(opts.ensure_installed, { "swift" })
+			end,
+		},
+		{
+			"williamboman/mason.nvim",
+			optional = true,
+			opts = function(_, opts)
+				opts.ensure_installed = opts.ensure_installed or {}
+				vim.list_extend(opts.ensure_installed, {
+					"swiftlint",
+					"xcbeautify",
+				})
+			end,
+		},
+		{
+			"neovim/nvim-lspconfig",
+			opts = {
+				servers = {
+					sourcekit = {
+						root_dir = function(filename, _)
+							local util = require("lspconfig.util")
+							return util.root_pattern("buildServer.json")(filename)
+								or util.root_pattern("*.xcodeproj", "*.xcworkspace")(filename)
+								or util.root_pattern("Package.swift")(filename)
+						end,
 					},
 				},
 			},
 		},
-	},
-	-- Elixir
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
-				"elixir",
-				"heex",
-				"eex",
-			})
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				lexical = {
-					filetypes = { "elixir", "eelixir", "heex" },
-					cmd = { "lexical" },
-					root_dir = function(fname)
-						return require("lspconfig").util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
-					end,
+		{
+			"mfussenegger/nvim-lint",
+			opts = {
+				linters_by_ft = {
+					swift = { "swiftlint" },
 				},
 			},
 		},
-	},
-	{
-		"nvim-neotest/neotest",
-		optional = true,
-		dependencies = {
-			"jfpedroza/neotest-elixir",
-		},
-		opts = {
-			adapters = {
-				["neotest-elixir"] = {},
-			},
-		},
-	},
-	-- TypeScript
-	{
-		"nvim-neotest/neotest",
-		optional = true,
-		dependencies = {
-			"marilari88/neotest-vitest",
-		},
-		opts = {
-			adapters = {
-				["neotest-vitest"] = {},
+		{
+			"stevearc/conform.nvim",
+			opts = {
+				formatters_by_ft = {
+					swift = { "swiftformat" },
+				},
 			},
 		},
 	},
