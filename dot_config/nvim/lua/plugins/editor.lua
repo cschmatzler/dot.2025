@@ -64,4 +64,13 @@ return {
 			opts.sections.lualine_z = {}
 		end,
 	},
+	{
+		"zk-org/zk-nvim",
+		event = "VeryLazy",
+		config = function()
+			require("zk").setup({
+				picker = "fzf_lua",
+			})
+		end,
+	},
 }
