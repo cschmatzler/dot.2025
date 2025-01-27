@@ -4,11 +4,10 @@ tap "fish-shell/fish-beta-4"
 
 # Applications
 cask "1password"
+cask "dash"
 cask "ghostty"
 cask "lunar"
-cask "orbstack"
 cask "raycast"
-cask "setapp"
 cask "shortcat"
 mas "Yubico Authenticator", id: 1497506650
 
