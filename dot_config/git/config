@@ -3,8 +3,8 @@
 
 [user]
   name = Christoph Schmatzler
-  email = christoph@tuist.dev
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGtCE8EgPKU8gcdoFrX6QRTwKziaujgBTXl7lnSwNjet
+  email = christoph@medium.place
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOoTwh9PyFzN7YRmmPrEOyAO92NxlgqkORVO7rn5EKH1 
 
 [core]
   editor = nvim

@@ -65,6 +65,22 @@ return {
 		end,
 	},
 	{
+		"andrewferrier/wrapping.nvim",
+		event = "VeryLazy",
+		opts = {
+			auto_set_mode_filetype_allowlist = {
+				"asciidoc",
+				"gitcommit",
+				"latex",
+				"mail",
+				"markdown",
+				"rst",
+				"tex",
+				"text",
+			},
+		},
+	},
+	{
 		"zk-org/zk-nvim",
 		event = "VeryLazy",
 		config = function()

@@ -1,5 +1,22 @@
 [tools]
-node = "22"
+node = "23.7.0"
+"aqua:atuinsh/atuin" = "18.4.0"
+"aqua:sharkdp/bat" = "0.25.0"
+"aqua:twpayne/chezmoi" = "2.59.0"
+"aqua:crates.io/eza" = "0.20.18"
+"aqua:sharkdp/fd" = "10.2.0"
+"aqua:junegunn/fzf" = "0.59.0"
+"aqua:dandavison/delta" = "0.18.2"
+"aqua:jqlang/jq" = "1.7.1"
+"aqua:jesseduffield/lazygit" = "0.45.2"
+"aqua:jesseduffield/lazydocker" = "0.24.1"
+"aqua:neovim/neovim" = "0.10.4"
+"aqua:noborus/ov" = "0.38.0"
+"aqua:BurntSushi/ripgrep" = "14.1.1"
+"aqua:starship/starship" = "1.22.1"
+"aqua:zellij-org/zellij" = "0.41.2"
+"aqua:ajeetdsouza/zoxide" = "0.9.6"
 
 [env]
 _.file = "~/.config/mise/.env"
+
