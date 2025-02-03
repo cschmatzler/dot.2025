@@ -20,7 +20,6 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.docker" },
 		{ import = "lazyvim.plugins.extras.lang.elixir" },
 		{ import = "lazyvim.plugins.extras.lang.json" },
-		{ import = "lazyvim.plugins.extras.lang.markdown" },
 		{ import = "lazyvim.plugins.extras.lang.typescript" },
 		{ import = "lazyvim.plugins.extras.lang.vue" },
 		{ import = "lazyvim.plugins.extras.lang.svelte" },
@@ -29,6 +28,7 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.test.core" },
 		{ import = "lazyvim.plugins.extras.ui.treesitter-context" },
 		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+		{ import = "lazyvim.plugins.extras.util.octo" },
 		{ import = "plugins" },
 	},
 	defaults = {
