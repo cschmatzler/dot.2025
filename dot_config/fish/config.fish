@@ -16,7 +16,4 @@ if status is-interactive
     zoxide init fish --hook prompt | source
     atuin init fish --disable-up-arrow --disable-ctrl-r | source
     mise activate fish --shims | source
-
-    set -U ZELLIJ_AUTO_ATTACH true
-    set -U ZELLIJ_AUTO_EXIT true
 end

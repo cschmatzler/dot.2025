@@ -15,6 +15,7 @@ alias mr "mise run"
 alias tf terraform
 alias v nvim
 alias vim nvim
+alias zj "zellij attach -c"
 
 abbr -a -g c clear
 
@@ -24,7 +25,7 @@ abbr -a -g dcud "docker compose -f docker-compose.dev.yml up -d"
 # git
 # ---
 set _git_log_oneline_format "%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n"
-set _git_log_medium_format "%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"
+set _git_log_medium_format "%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae >%n%C(bold)Date:%C(reset) %C(blue)%ai (%ar)%C(reset)%n%+B"
 
 alias g git
 
