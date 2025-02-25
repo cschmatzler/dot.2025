@@ -2,6 +2,7 @@ local g = vim.g
 local opt = vim.opt
 
 g.autoformat = true
+g.lazyvim_eslint_auto_format = true
 g.root_spec = { ".git", "lsp", "cwd" }
 g.lazygit_config = false
 opt.formatoptions = "jcroqlnt"
