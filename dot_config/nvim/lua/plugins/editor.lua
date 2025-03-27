@@ -13,8 +13,9 @@ return {
 			{ "<leader>e", "<cmd>Oil<cr>", desc = "Files" },
 		},
 		opts = {
+			default_file_explorer = true,
 			skip_confirm_for_simple_edits = true,
-			experimental_watch_for_changes = true,
+			watch_for_changes = true,
 			view_options = {
 				show_hidden = true,
 				sort = {
@@ -39,6 +40,25 @@ return {
 				glob_flag = "--iglob",
 				glob_separator = "%s%-%-",
 			},
+		},
+	},
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			"ibhagwan/fzf-lua",
+		},
+		keys = {
+			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "neogit" },
+		},
+		config = true,
+	},
+	{
+		"sindrets/diffview.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
 		},
 	},
 	{
