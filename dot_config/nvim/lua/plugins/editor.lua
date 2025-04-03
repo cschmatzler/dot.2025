@@ -44,6 +44,7 @@ return {
 	},
 	{
 		"NeogitOrg/neogit",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"sindrets/diffview.nvim",
@@ -52,10 +53,16 @@ return {
 		keys = {
 			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "neogit" },
 		},
-		config = true,
+		opts = {
+			integrations = {
+				diffview = true,
+				fzf_lua = true,
+			},
+		},
 	},
 	{
 		"sindrets/diffview.nvim",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
