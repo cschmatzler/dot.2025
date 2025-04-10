@@ -1,0 +1,11 @@
+[database]
+path=/Users/christoph/.mail/icloud
+
+[user]
+primary_email=christoph@schmatzler.com
+
+[new]
+tags=inbox;
+
+[maildir]
+synchronize_flags=true

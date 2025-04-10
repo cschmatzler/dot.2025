@@ -1,0 +1,25 @@
+IMAPAccount icloud
+  Host imap.mail.me.com
+  Port 993
+  Timeout 0
+  AuthMechs LOGIN
+  TLSType IMAPS
+  User christoph.schmatzler
+  PassCmd "op read 'op://Private/iCloud Mail/password'"
+
+IMAPStore icloud-remote
+  Account icloud
+
+MaildirStore icloud-local
+  Path ~/.mail/icloud/
+  Inbox ~/.mail/icloud/Inbox
+  Subfolders Verbatim
+  Trash Trash
+
+Channel icloud-folders
+  Far :icloud-remote:
+  Near :icloud-local:
+  Patterns *
+  SyncState *
+  Create Both
+  Expunge Both
