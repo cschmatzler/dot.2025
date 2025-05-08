@@ -1,4 +1,24 @@
 return {
+	-- TypeScript
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = { eslint = {} },
+			setup = {
+				eslint = function()
+					require("lazyvim.util").lsp.on_attach(function(client)
+						if client.name == "eslint" then
+							client.server_capabilities.documentFormattingProvider = true
+						elseif client.name == "vtsls" then
+							client.server_capabilities.documentFormattingProvider = false
+						elseif client.name == "volar" then
+							client.server_capabilities.documentFormattingProvider = false
+						end
+					end)
+				end,
+			},
+		},
+	},
 	-- Swift
 	{
 		{

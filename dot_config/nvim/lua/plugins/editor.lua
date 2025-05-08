@@ -43,24 +43,6 @@ return {
 		},
 	},
 	{
-		"NeogitOrg/neogit",
-		event = "VeryLazy",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"sindrets/diffview.nvim",
-			"ibhagwan/fzf-lua",
-		},
-		keys = {
-			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "neogit" },
-		},
-		opts = {
-			integrations = {
-				diffview = true,
-				fzf_lua = true,
-			},
-		},
-	},
-	{
 		"sindrets/diffview.nvim",
 		event = "VeryLazy",
 		dependencies = {
@@ -110,10 +92,27 @@ return {
 	{
 		"zk-org/zk-nvim",
 		event = "VeryLazy",
+		keys = {
+			{ "<leader>zn", "<cmd>ZkNotes<cr>", desc = "List notes" },
+			{ "<leader>zc", "<cmd>ZkNew<cr>", desc = "New note" },
+			{ "<leader>zl", "<cmd>ZkLinks<cr>", desc = "Show links from current note" },
+			{ "<leader>zb", "<cmd>ZkBacklinks<cr>", desc = "Show backlinks for current note" },
+			{ "<leader>zi", "<cmd>ZkInsertLink<cr>", desc = "Insert a new link" },
+		},
 		config = function()
 			require("zk").setup({
-				picker = "fzf_lua",
+				picker = "snacks_picker",
 			})
 		end,
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts_extend = { "spec" },
+		opts = {
+			spec = {
+				{ "<leader>z", group = "zk", icon = { " " } },
+			},
+		},
 	},
 }
