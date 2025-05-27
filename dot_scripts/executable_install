@@ -2,11 +2,14 @@
 
 set -e
 
-if ! command -v brew &> /dev/null; then
-    echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+if ! command -v brew &>/dev/null; then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+echo "Installing fish plugins..."
+fisher update
 
 echo "Installing homebrew packages..."
 brew update
@@ -14,31 +17,31 @@ brew upgrade
 
 read -n1 -p "[P]ersonal or [W]ork? " systemtype
 case $systemtype in
-  p|P) 
-    echo "[data]
+p | P)
+  echo "[data]
 personal = true
-work = false" > ~/.config/chezmoi/chezmoi.toml
-    ;;
-  w|W) 
-    echo "[data]
+work = false" >~/.config/chezmoi/chezmoi.toml
+  ;;
+w | W)
+  echo "[data]
 personal = false
-work = true" > ~/.config/chezmoi/chezmoi.toml
-    ;;
-  *) 
-    echo "Invalid option, skipping"
-    ;;
+work = true" >~/.config/chezmoi/chezmoi.toml
+  ;;
+*)
+  echo "Invalid option, skipping"
+  ;;
 esac
 
 source $HOME/.scripts/install.d/brew.sh
 
 read -n1 -p "Cleanup packages [Y]es or [No]?" cleanup
 case $cleanup in
-  y|Y) 
-    source $HOME/.scripts/install.d/brew_cleanup.sh
-    ;;
-  *) 
-    echo "Skipping"
-    ;;
+y | Y)
+  source $HOME/.scripts/install.d/brew_cleanup.sh
+  ;;
+*)
+  echo "Skipping"
+  ;;
 esac
 
 mkdir -p ~/Library/LaunchAgents

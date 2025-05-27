@@ -3,11 +3,14 @@ tap "fish-shell/fish-beta-4"
 
 # Applications
 cask "1password"
+cask "cleanshot"
 cask "dash"
 cask "ghostty"
 cask "lunar"
 cask "raycast"
 cask "shortcat"
+cask "spotify"
+cask "zen"
 mas "Yubico Authenticator", id: 1497506650
 
 # Safari Extensions
@@ -20,16 +23,19 @@ cask "font-iosevka-nerd-font"
 
 # Utilities
 brew "docker"
-brew "dockutil"
 brew "docker-buildx"
 brew "docker-compose"
 brew "docker-credential-helper"
+brew "dockutil"
 brew "eza"
 brew "fish"
 brew "gh"
 brew "git"
+brew "isync"
 brew "k9s"
 brew "mise"
+brew "notmuch"
 brew "openssh"
+brew "terminal-notifier"
 brew "wget"
 brew "zk"

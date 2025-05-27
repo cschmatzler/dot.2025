@@ -15,7 +15,7 @@ node = "24.1.0"
 "aqua:BurntSushi/ripgrep" = "14.1.1"
 "aqua:starship/starship" = "1.23.0"
 "aqua:zellij-org/zellij" = "0.42.2"
-"aqua:ajeetdsouza/zoxide" = "0.9.7"
+"aqua:ajeetdsouza/zoxide" = "0.9.8"
 
 [env]
 _.file = "~/.config/mise/.env"
