@@ -45,7 +45,7 @@ mkdir -p ~/Library/LaunchAgents
 
 echo "Setting up dock..."
 dockutil --remove all --no-restart
-dockutil --add "/Applications/Safari.app" --no-restart
+dockutil --add "/Applications/Zen.app" --no-restart
 dockutil --add "/Applications/Ghostty.app" --no-restart
 dockutil --add "/System/Applications/Utilities/Activity Monitor.app" --no-restart
 dockutil --add "/System/Applications/System Settings.app" --no-restart
