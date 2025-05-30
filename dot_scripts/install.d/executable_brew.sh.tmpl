@@ -3,7 +3,7 @@
 {{- if .personal | default false }}
 cat $HOME/.config/brew/Brewfile.common $HOME/.config/brew/Brewfile.personal | brew bundle --file=-
 {{ else }}
-cat $HOME/.config/brew/Brewfile.common | brew bundle --file=-
+cat $HOME/.config/brew/Brewfile.common $HOME/.config/brew/Brewfile.work | brew bundle --file=-
 {{- end }}
 
 brew upgrade --fetch-HEAD

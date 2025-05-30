@@ -1,1 +1,3 @@
+# Applications
 cask "slack"
+cask "tuple"
