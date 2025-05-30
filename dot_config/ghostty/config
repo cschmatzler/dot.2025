@@ -14,3 +14,4 @@ shell-integration = fish
 shell-integration-features = no-cursor
 keybind = global:ctrl+shift+space=toggle_quick_terminal
 
+keybind = shift+enter=text:\n
