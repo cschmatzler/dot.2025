@@ -10,4 +10,4 @@ default_layout "default"
 session_serialization false
 
 // Themes
-theme "tokyonight-day"
+theme "tokyonight_day"

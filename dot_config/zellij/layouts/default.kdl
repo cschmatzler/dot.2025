@@ -4,27 +4,27 @@ layout {
     }
     pane size=2 borderless=true {
         plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
-            format_left   "{mode}#[fg=#1e66f5,bg=#ccd0da] {session} #[fg=#ccd0da]"
+            format_left   "{mode}#[fg=#2e7de9,bg=#c4c8da] {session} #[fg=#c4c8da]"
             format_center "{tabs}"
             format_right  "{datetime}"
             format_space  ""
 
             border_enabled  "true"
             border_char     "─"
-            border_format   "#[fg=#bcc0cc]{char}"
+            border_format   "#[fg=#6172b0]{char}"
             border_position "top"
 
-            mode_locked  "#[fg=#dce0e8,bg=#e64553,bold] LOCKED #[fg=#e64553,bg=#ccd0da]"
-            mode_normal  "#[fg=#dce0e8,bg=#1e66f5,bold] NORMAL #[fg=#1e66f5,bg=#ccd0da]"
-            mode_resize  "#[fg=#dce0e8,bg=#179299,bold] RESIZE #[fg=#179299,bg=#ccd0da]"
-            mode_pane    "#[fg=#dce0e8,bg=#ea76cb,bold] PANE #[fg=#ea76cb,bg=#ccd0da]"
-            mode_tab     "#[fg=#dce0e8,bg=#8839ef,bold] TAB #[fg=#8839ef,bg=#ccd0da]"
-            mode_session "#[fg=#dce0e8,bg=#7287fd,bold] SESSION #[fg=#7287fd,bg=#ccd0da]"
+            mode_locked  "#[fg=#e1e2e7,bg=#f52a65,bold] LOCKED #[fg=#f52a65,bg=#c4c8da]"
+            mode_normal  "#[fg=#e1e2e7,bg=#2e7de9,bold] NORMAL #[fg=#2e7de9,bg=#c4c8da]"
+            mode_resize  "#[fg=#e1e2e7,bg=#007197,bold] RESIZE #[fg=#007197,bg=#c4c8da]"
+            mode_pane    "#[fg=#e1e2e7,bg=#9854f1,bold] PANE #[fg=#9854f1,bg=#c4c8da]"
+            mode_tab     "#[fg=#e1e2e7,bg=#9854f1,bold] TAB #[fg=#9854f1,bg=#c4c8da]"
+            mode_session "#[fg=#e1e2e7,bg=#2e7de9,bold] SESSION #[fg=#2e7de9,bg=#c4c8da]"
 
-            tab_normal   "#[fg=#1e66f5] {name} "
-            tab_active   "#[fg=#8839ef,bold] {name} "
+            tab_normal   "#[fg=#2e7de9] {name} "
+            tab_active   "#[fg=#9854f1,bold] {name} "
 
-            datetime        "#[fg=#4c4f69,bold] {format} "
+            datetime        "#[fg=#3760bf,bold] {format} "
             datetime_format "%A, %d %b %Y %H:%M"
             datetime_timezone "Europe/Berlin"
         }
