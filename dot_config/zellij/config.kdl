@@ -10,4 +10,4 @@ default_layout "default"
 session_serialization false
 
 // Themes
-theme "catppuccin-latte"
+theme "tokyonight-day"

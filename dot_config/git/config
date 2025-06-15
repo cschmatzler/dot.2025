@@ -1,5 +1,5 @@
 [include]
-  path = ~/.config/git/catppuccin.gitconfig
+  path = ~/.config/git/tokyonight-day.gitconfig
 
 [user]
   name = Christoph Schmatzler
@@ -48,13 +48,11 @@
 [pager]
   difftool = true
 
-[delta]
-  features = catppuccin-latte
-
 [rerere]
 	enabled = true
+  
+[init]
+	defaultBranch = main
 
 [includeIf "gitdir:~/Development/work/"]
   path = "~/.config/git/work.config"
-[init]
-	defaultBranch = main

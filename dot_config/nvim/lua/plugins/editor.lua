@@ -2,7 +2,7 @@ return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "catppuccin-latte",
+			colorscheme = "tokyonight-day",
 		},
 	},
 	{ "nvim-neo-tree/neo-tree.nvim", enabled = false },
