@@ -1,4 +1,5 @@
 [delta]
+  light = true
   minus-style                   = syntax "#ddcace"
   minus-non-emph-style          = syntax "#ddcace"
   minus-emph-style              = syntax "#d59a9d"
@@ -10,3 +11,4 @@
   plus-empty-line-marker-style  = syntax "#c8d6dc"
   line-numbers-plus-style       = "#4197a4"
   line-numbers-zero-style       = "#a8aecb"
+  syntax-theme = tokyonight-day
