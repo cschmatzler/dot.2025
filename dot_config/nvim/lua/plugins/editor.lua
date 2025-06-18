@@ -55,16 +55,27 @@ return {
 		event = "BufReadPost",
 		opts = {
 			mappings = {
-				left = "<M-Left>",
-				right = "<M-Right>",
-				down = "<M-Down>",
-				up = "<M-Up>",
-				line_left = "<M-Left>",
-				line_right = "<M-Right>",
-				line_down = "<M-Down>",
-				line_up = "<M-Up>",
+				left = "<M-h>",
+				right = "<M-l>",
+				down = "<M-j>",
+				up = "<M-k>",
+				line_left = "<M-h>",
+				line_right = "<M-l>",
+				line_down = "<M-j>",
+				line_up = "<M-k>",
 			},
 		},
+		config = function(_, opts)
+			require("mini.move").setup(opts)
+			vim.keymap.set("v", "<M-Left>", "<cmd>lua MiniMove.move_selection('left')<cr>", { desc = "Move selection left" })
+			vim.keymap.set("v", "<M-Right>", "<cmd>lua MiniMove.move_selection('right')<cr>", { desc = "Move selection right" })
+			vim.keymap.set("v", "<M-Down>", "<cmd>lua MiniMove.move_selection('down')<cr>", { desc = "Move selection down" })
+			vim.keymap.set("v", "<M-Up>", "<cmd>lua MiniMove.move_selection('up')<cr>", { desc = "Move selection up" })
+			vim.keymap.set("n", "<M-Left>", "<cmd>lua MiniMove.move_line('left')<cr>", { desc = "Move line left" })
+			vim.keymap.set("n", "<M-Right>", "<cmd>lua MiniMove.move_line('right')<cr>", { desc = "Move line right" })
+			vim.keymap.set("n", "<M-Down>", "<cmd>lua MiniMove.move_line('down')<cr>", { desc = "Move line down" })
+			vim.keymap.set("n", "<M-Up>", "<cmd>lua MiniMove.move_line('up')<cr>", { desc = "Move line up" })
+		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
