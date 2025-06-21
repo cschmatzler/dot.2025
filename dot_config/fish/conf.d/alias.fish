@@ -15,7 +15,6 @@ alias mr "mise run"
 alias tf terraform
 alias v nvim
 alias vim nvim
-alias zj "zellij attach -c"
 
 abbr -a -g c clear
 
