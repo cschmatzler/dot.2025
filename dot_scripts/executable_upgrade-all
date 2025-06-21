@@ -7,6 +7,19 @@ echo "🚀 Starting system upgrade..."
 echo "📦 Upgrading mise tools..."
 if command -v mise &> /dev/null; then
     mise upgrade --bump
+    
+    # Add updated mise config to chezmoi and commit
+    if command -v chezmoi &> /dev/null; then
+        echo "📝 Adding mise config changes to chezmoi..."
+        chezmoi add ~/.config/mise/config.toml
+        
+        echo "💾 Committing mise config updates..."
+        CHEZMOI_SOURCE_DIR=$(chezmoi source-path)
+        (cd "$CHEZMOI_SOURCE_DIR" && git add dot_config/mise/config.toml && git commit -m "Update mise tool versions
+
+🤖 Auto-updated by upgrade-all script") || echo "ℹ️  No changes to commit for mise config"
+    fi
+    
     echo "✅ mise tools upgraded"
 else
     echo "⚠️  mise not found, skipping..."
