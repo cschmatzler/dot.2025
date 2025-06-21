@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "🚀 Starting system upgrade..."
+
+echo "📦 Upgrading mise tools..."
+if command -v mise &> /dev/null; then
+    mise upgrade --bump
+    echo "✅ mise tools upgraded"
+else
+    echo "⚠️  mise not found, skipping..."
+fi
+
+echo "🍺 Upgrading brew packages..."
+if command -v brew &> /dev/null; then
+    brew update
+    brew upgrade
+    
+    # Upgrade HEAD/nightly packages
+    echo "🌙 Upgrading HEAD/nightly packages..."
+    brew upgrade --fetch-HEAD
+    
+    echo "🧹 Cleaning up brew..."
+    brew cleanup
+    echo "✅ brew packages upgraded"
+else
+    echo "⚠️  brew not found, skipping..."
+fi
+
+echo "🔌 Upgrading neovim plugins..."
+if command -v nvim &> /dev/null; then
+    # Using Lazy.nvim's headless sync command
+    nvim --headless "+Lazy! sync" +qa
+    echo "✅ neovim plugins upgraded"
+else
+    echo "⚠️  neovim not found, skipping..."
+fi
+
+echo "🎉 All upgrades completed!"
