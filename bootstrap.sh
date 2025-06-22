@@ -31,9 +31,47 @@ else
 fi
 
 echo "📥 Initializing chezmoi with your dotfiles..."
-chezmoi init --apply "https://github.com/cschmatzler/dot.2025.git"
+chezmoi init "https://github.com/cschmatzler/dot.2025.git"
 
-echo "🔧 Installing mise tools..."
-/opt/homebrew/bin/mise install
+echo ""
+read -n1 -p "[P]ersonal or [W]ork? " systemtype
+echo ""
+case $systemtype in
+p | P)
+  echo "🏠 Setting up for personal use..."
+  mkdir -p ~/.config/chezmoi
+  echo "[data]
+personal = true
+work = false" >~/.config/chezmoi/chezmoi.toml
+  ;;
+w | W)
+  echo "💼 Setting up for work use..."
+  mkdir -p ~/.config/chezmoi
+  echo "[data]
+personal = false
+work = true" >~/.config/chezmoi/chezmoi.toml
+  ;;
+*)
+  echo "❌ Invalid option, defaulting to personal..."
+  mkdir -p ~/.config/chezmoi
+  echo "[data]
+personal = true
+work = false" >~/.config/chezmoi/chezmoi.toml
+  ;;
+esac
 
-echo "🎉 Bootstrap complete! Your dotfiles are now applied."
+echo "📦 Applying dotfiles configuration..."
+chezmoi apply
+
+echo "📦 Installing all packages..."
+$HOME/.scripts/install
+
+mkdir -p ~/Library/LaunchAgents
+
+echo "🖥️  Setting up dock..."
+$HOME/.scripts/setup-dock
+
+echo "⚙️  Updating macOS settings..."
+$HOME/.scripts/setup-macos
+
+echo "🎉 Bootstrap complete! Your system is now fully configured."

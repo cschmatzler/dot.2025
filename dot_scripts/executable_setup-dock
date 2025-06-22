@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "🖥️  Setting up dock..."
+
+dockutil --remove all --no-restart
+dockutil --add "/Applications/Orion.app" --no-restart
+dockutil --add "/Applications/Ghostty.app" --no-restart
+dockutil --add "/System/Applications/Utilities/Activity Monitor.app" --no-restart
+dockutil --add "/System/Applications/System Settings.app" --no-restart
+
+dockutil --add '/Applications' --view grid --display folder --no-restart
+mkdir -p "~/Development/"
+dockutil --add '~/Development' --view list --display folder --no-restart
+dockutil --add '~/Documents' --view list --display folder --no-restart
+dockutil --add '~/Downloads' --view list --display folder
+
+echo "✅ Dock setup complete!"

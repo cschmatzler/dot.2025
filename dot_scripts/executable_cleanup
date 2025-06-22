@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "🧹 Cleaning up packages and caches..."
+
+# Brew cleanup
+if command -v brew &>/dev/null; then
+  echo "🍺 Cleaning up brew packages..."
+  
+{{- if .personal | default false }}
+  cat $HOME/.config/brew/Brewfile.common $HOME/.config/brew/Brewfile.personal | brew bundle cleanup --force --file=-
+{{ else }}
+  cat $HOME/.config/brew/Brewfile.common $HOME/.config/brew/Brewfile.work | brew bundle cleanup --force --file=-
+{{- end }}
+
+  brew cleanup
+  echo "✅ Brew cleanup complete"
+else
+  echo "⚠️  brew not found, skipping..."
+fi
+
+# Mise cleanup
+if command -v mise &>/dev/null; then
+  echo "🔧 Cleaning up mise caches..."
+  mise cache clear
+  mise prune
+  echo "✅ Mise cleanup complete"
+else
+  echo "⚠️  mise not found, skipping..."
+fi
+
+# Neovim plugin cleanup (if lazy.nvim is available)
+if command -v nvim &>/dev/null; then
+  echo "🔌 Cleaning up neovim plugins..."
+  nvim --headless "+Lazy! clean" +qa 2>/dev/null || echo "ℹ️  No neovim plugins to clean"
+  echo "✅ Neovim cleanup complete"
+else
+  echo "⚠️  neovim not found, skipping..."
+fi
+
+echo "✅ All cleanup complete!"
