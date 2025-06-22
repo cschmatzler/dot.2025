@@ -45,7 +45,7 @@ mkdir -p ~/Library/LaunchAgents
 
 echo "Setting up dock..."
 dockutil --remove all --no-restart
-dockutil --add "/Applications/Zen.app" --no-restart
+dockutil --add "/Applications/Orion.app" --no-restart
 dockutil --add "/Applications/Ghostty.app" --no-restart
 dockutil --add "/System/Applications/Utilities/Activity Monitor.app" --no-restart
 dockutil --add "/System/Applications/System Settings.app" --no-restart
@@ -71,9 +71,9 @@ defaults write com.apple.AppleMultitouchTrackpad Dragging -bool false
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 
 # Dock tweaks
-defaults write com.apple.dock orientation -string left # Move dock to left side of screen
-defaults write com.apple.dock show-recents -bool FALSE # Disable "Show recent applications in dock"
-defaults write com.apple.Dock showhidden -bool TRUE    # Show hidden applications as translucent
+defaults write com.apple.dock orientation -string bottom
+defaults write com.apple.dock show-recents -bool FALSE
+defaults write com.apple.Dock showhidden -bool TRUE
 killall Dock
 
 # Finder tweaks

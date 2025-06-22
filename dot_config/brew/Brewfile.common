@@ -4,10 +4,10 @@ cask "cleanshot"
 cask "dash"
 cask "ghostty@tip"
 cask "lunar"
+cask "orion"
 cask "raycast"
 cask "spotify"
 cask "whatsapp"
-cask "zen"
 mas "Yubico Authenticator", id: 1497506650
 
 # Fonts
