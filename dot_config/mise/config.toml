@@ -21,4 +21,5 @@ python = "3.13.5"
 
 [env]
 _.file = "~/.config/mise/.env"
-
+DO_NOT_TRACK=1
+HOMEBREW_NO_ANALYTICS=1
