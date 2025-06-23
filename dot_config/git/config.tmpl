@@ -3,8 +3,13 @@
 
 [user]
   name = Christoph Schmatzler
+{{- if .work }}
+  email = christoph@tuist.dev
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGtCE8EgPKU8gcdoFrX6QRTwKziaujgBTXl7lnSwNjet
+{{- else }}
   email = christoph@schmatzler.com
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOoTwh9PyFzN7YRmmPrEOyAO92NxlgqkORVO7rn5EKH1 
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOoTwh9PyFzN7YRmmPrEOyAO92NxlgqkORVO7rn5EKH1
+{{- end }}
 
 [core]
   editor = nvim
