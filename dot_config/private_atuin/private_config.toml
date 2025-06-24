@@ -1,0 +1,7 @@
+enter_accept = true
+history_filter = [
+   "^sst secret set",
+]
+
+[sync]
+records = true
