@@ -15,7 +15,7 @@ python = "3.13.5"
 "aqua:starship/starship" = "1.23.0"
 "aqua:twpayne/chezmoi" = "2.62.7"
 "aqua:zk-org/zk" = "0.15.1"
-"npm:opencode-ai" = "0.1.140"
+"npm:opencode-ai" = "0.1.150"
 "npm:@anthropic-ai/claude-code" = "1.0.35"
 "npm:typescript-language-server" = "4.3.4"
 
