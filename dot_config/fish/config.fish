@@ -10,6 +10,7 @@ end
 if status is-interactive
     set -U FZF_COMPLETE 0
     set fish_greeting
+    fish_config theme choose "Rosé Pine Dawn"
     fish_vi_key_bindings
 
     starship init fish | source

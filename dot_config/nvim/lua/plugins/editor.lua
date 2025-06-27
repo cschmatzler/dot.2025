@@ -1,10 +1,4 @@
 return {
-	{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "tokyonight-day",
-		},
-	},
 	{ "nvim-neo-tree/neo-tree.nvim", enabled = false },
 	{
 		"stevearc/oil.nvim",
@@ -67,22 +61,72 @@ return {
 		},
 		config = function(_, opts)
 			require("mini.move").setup(opts)
-			vim.keymap.set("v", "<M-Left>", "<cmd>lua MiniMove.move_selection('left')<cr>", { desc = "Move selection left" })
-			vim.keymap.set("v", "<M-Right>", "<cmd>lua MiniMove.move_selection('right')<cr>", { desc = "Move selection right" })
-			vim.keymap.set("v", "<M-Down>", "<cmd>lua MiniMove.move_selection('down')<cr>", { desc = "Move selection down" })
+			vim.keymap.set(
+				"v",
+				"<M-Left>",
+				"<cmd>lua MiniMove.move_selection('left')<cr>",
+				{ desc = "Move selection left" }
+			)
+			vim.keymap.set(
+				"v",
+				"<M-Right>",
+				"<cmd>lua MiniMove.move_selection('right')<cr>",
+				{ desc = "Move selection right" }
+			)
+			vim.keymap.set(
+				"v",
+				"<M-Down>",
+				"<cmd>lua MiniMove.move_selection('down')<cr>",
+				{ desc = "Move selection down" }
+			)
 			vim.keymap.set("v", "<M-Up>", "<cmd>lua MiniMove.move_selection('up')<cr>", { desc = "Move selection up" })
 			vim.keymap.set("n", "<M-Left>", "<cmd>lua MiniMove.move_line('left')<cr>", { desc = "Move line left" })
 			vim.keymap.set("n", "<M-Right>", "<cmd>lua MiniMove.move_line('right')<cr>", { desc = "Move line right" })
 			vim.keymap.set("n", "<M-Down>", "<cmd>lua MiniMove.move_line('down')<cr>", { desc = "Move line down" })
 			vim.keymap.set("n", "<M-Up>", "<cmd>lua MiniMove.move_line('up')<cr>", { desc = "Move line up" })
-			
-			vim.keymap.set("v", "<M-m>", "<cmd>lua MiniMove.move_selection('left')<cr>", { desc = "Move selection left (Colemak)" })
-			vim.keymap.set("v", "<M-i>", "<cmd>lua MiniMove.move_selection('right')<cr>", { desc = "Move selection right (Colemak)" })
-			vim.keymap.set("v", "<M-n>", "<cmd>lua MiniMove.move_selection('down')<cr>", { desc = "Move selection down (Colemak)" })
-			vim.keymap.set("v", "<M-e>", "<cmd>lua MiniMove.move_selection('up')<cr>", { desc = "Move selection up (Colemak)" })
-			vim.keymap.set("n", "<M-m>", "<cmd>lua MiniMove.move_line('left')<cr>", { desc = "Move line left (Colemak)" })
-			vim.keymap.set("n", "<M-i>", "<cmd>lua MiniMove.move_line('right')<cr>", { desc = "Move line right (Colemak)" })
-			vim.keymap.set("n", "<M-n>", "<cmd>lua MiniMove.move_line('down')<cr>", { desc = "Move line down (Colemak)" })
+
+			vim.keymap.set(
+				"v",
+				"<M-m>",
+				"<cmd>lua MiniMove.move_selection('left')<cr>",
+				{ desc = "Move selection left (Colemak)" }
+			)
+			vim.keymap.set(
+				"v",
+				"<M-i>",
+				"<cmd>lua MiniMove.move_selection('right')<cr>",
+				{ desc = "Move selection right (Colemak)" }
+			)
+			vim.keymap.set(
+				"v",
+				"<M-n>",
+				"<cmd>lua MiniMove.move_selection('down')<cr>",
+				{ desc = "Move selection down (Colemak)" }
+			)
+			vim.keymap.set(
+				"v",
+				"<M-e>",
+				"<cmd>lua MiniMove.move_selection('up')<cr>",
+				{ desc = "Move selection up (Colemak)" }
+			)
+			vim.keymap.set(
+				"n",
+				"<M-m>",
+				"<cmd>lua MiniMove.move_line('left')<cr>",
+				{ desc = "Move line left (Colemak)" }
+			)
+			vim.keymap.set(
+				"n",
+				"<M-i>",
+				"<cmd>lua MiniMove.move_line('right')<cr>",
+				{ desc = "Move line right (Colemak)" }
+			)
+			vim.keymap.set(
+				"n",
+				"<M-n>",
+				"<cmd>lua MiniMove.move_line('down')<cr>",
+				{ desc = "Move line down (Colemak)" }
+			)
 			vim.keymap.set("n", "<M-e>", "<cmd>lua MiniMove.move_line('up')<cr>", { desc = "Move line up (Colemak)" })
 		end,
 	},
