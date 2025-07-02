@@ -2,4 +2,4 @@
 cask "1password-cli"
 cask "affinity-photo"
 cask "daisydisk"
-cask "tailscale"
+cask "tailscale-app"
