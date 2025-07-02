@@ -5,6 +5,10 @@ format = """
 $directory $git_branch $git_status $git_metrics $kubernetes$line_break$character
 """
 
+[character]
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'
+
 [git_branch]
 format = "[ $branch]($style) "
 

@@ -34,6 +34,10 @@ $env.config = {
 }
 
 # Tool integrations
+# Mise activation
+if ($env.HOME | path join ".cache" "mise" "init.nu" | path exists) {
+    source ~/.cache/mise/init.nu
+}
 if ($env.HOME | path join ".cache" "starship" "init.nu" | path exists) {
     source ~/.cache/starship/init.nu
 }
@@ -44,10 +48,6 @@ if ($env.HOME | path join ".cache" "atuin" "init.nu" | path exists) {
     source ~/.cache/atuin/init.nu
 }
 
-# Mise activation
-if ($env.HOME | path join ".cache" "mise" "init.nu" | path exists) {
-    source ~/.cache/mise/init.nu
-}
 
 # Aliases - Basic navigation
 alias .. = cd ..
