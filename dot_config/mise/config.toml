@@ -1,8 +1,8 @@
 [tools]
 node = "24.3.0"
 python = "3.13.5"
-"npm:opencode-ai" = "0.1.166"
-"npm:@anthropic-ai/claude-code" = "1.0.35"
+"npm:opencode-ai" = "0.1.176"
+"npm:@anthropic-ai/claude-code" = "1.0.40"
 "npm:typescript-language-server" = "4.3.4"
 
 [env]
