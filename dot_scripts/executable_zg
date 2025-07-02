@@ -1,4 +1,6 @@
-def --env zg [] {
+#!/usr/bin/env nu
+
+def --env main [] {
     let git_root = (git rev-parse --show-toplevel | complete)
     if $git_root.exit_code == 0 {
         z ($git_root.stdout | str trim)

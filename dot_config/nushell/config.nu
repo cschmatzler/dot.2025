@@ -83,7 +83,4 @@ alias gsa = git stash apply
 alias gsd = git stash drop
 alias gsp = git stash pop
 
-# Functions
-source functions/mkcd.nu
-source functions/zg.nu
-source functions/c.nu
+
