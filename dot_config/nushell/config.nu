@@ -84,18 +84,6 @@ alias gsd = git stash drop
 alias gsp = git stash pop
 
 # Functions
-def mkcd [dir: string] {
-    mkdir $dir
-    cd $dir
-}
-
-def zg [] {
-    let git_root = (git rev-parse --show-toplevel | complete)
-    if $git_root.exit_code == 0 {
-        z ($git_root.stdout | str trim)
-    } else {
-        echo "Not in a git repository"
-    }
-}
-
-def c [] { clear }
+source functions/mkcd.nu
+source functions/zg.nu
+source functions/c.nu
