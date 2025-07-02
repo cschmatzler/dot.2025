@@ -1,9 +1,23 @@
-# Nushell Configuration
+# Environment
+$env.PATH ++= [
+  ($env.HOME | path join ".local" "bin"),
+  ($env.HOME | path join ".scripts"),
+  "/opt/homebrew/bin"
+]
 
-# Configuration
+$env.EDITOR = "nvim"
+$env.VISUAL = $env.EDITOR
+$env.PAGER = "ov"
+$env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
+$env.ZK_NOTEBOOK_DIR = ($env.HOME | path join "Notebook")
+
+# Nushell
+source theme.nu
+$env.PROMPT_INDICATOR_VI_INSERT = ""
+$env.PROMPT_INDICATOR_VI_NORMAL = ""
 $env.config = {
     show_banner: false
-    edit_mode: vi
+    edit_mode: vi,
     keybindings: [
         {
             name: atuin_ctrl_h
@@ -15,27 +29,26 @@ $env.config = {
     ]
 }
 
-mkdir ($nu.user-autoload-dirs | first)
-if (which mise | is-not-empty) {
-    mise activate nu | save -f ($nu.user-autoload-dirs | first | path join "mise.nu")
-}
-if (which starship | is-not-empty) {
-    $env.STARSHIP_SHELL = "nu"
-    starship init nu | save -f ($nu.user-autoload-dirs | first | path join "starship.nu")
-}
-if (which zoxide | is-not-empty) {
-    zoxide init nushell | save -f ($nu.user-autoload-dirs | first | path join "zoxide.nu")
-}
-if (which atuin | is-not-empty) {
-    atuin init nu | save -f ($nu.user-autoload-dirs | first | path join "atuin.nu")
-}
+# Plugins
+source mise.nu
+source starship.nu
+source zoxide.nu
+source atuin.nu
+
+# Tools
+$env.RIPGREP_CONFIG_PATH = ($env.HOME | path join ".config" "ripgrep" "config")
+$env.FZF_COMPLETE = "0"
+$env.FZF_DEFAULT_OPTS = "
+	--color=fg:$subtle,bg:$base,hl:$rose
+	--color=fg+:$text,bg+:$overlay,hl+:$rose
+	--color=border:$highlightMed,header:$pine,gutter:$base
+	--color=spinner:$gold,info:$foam
+	--color=pointer:$iris,marker:$love,prompt:$subtle"
 
 
-# Aliases - Basic navigation
+# Aliases 
 alias .. = cd ..
 alias ... = cd ../..
-
-# Aliases - Tools
 alias b = bat
 alias d = docker
 alias ld = lazydocker
@@ -44,48 +57,34 @@ alias m = mise
 alias mr = mise run
 alias v = nvim
 alias vim = nvim
-
-# Docker aliases
 alias dcu = docker compose up -d
 alias dcud = docker compose -f docker-compose.dev.yml up -d
 
-alias g = git
 
-# Branch
+# Aliases: Git
+alias g = git
 alias gb = git branch
 alias gbc = git switch -c
 alias gbs = git switch
-
-# Fetch
 alias gf = git fetch
 alias gfc = git clone
 alias gfp = git pull
-
-# Push
 alias gp = git push
 alias gpf = git push --force-with-lease
 alias gpF = git push --force
-
-# Commit
 alias gc = git commit
-
-# Working copy
 alias gwr = git restore
 alias gws = git status --short
-
-# Index
 alias gia = git add
 alias gid = git diff --cached
 alias gir = git reset
 alias giu = git add --update
-
-# Stash
 alias gs = git stash
 alias gsa = git stash apply
 alias gsd = git stash drop
 alias gsp = git stash pop
 
-# Custom functions
+# Functions
 def mkcd [dir: string] {
     mkdir $dir
     cd $dir

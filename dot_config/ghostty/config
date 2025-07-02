@@ -1,4 +1,4 @@
-command = /opt/homebrew/bin/nu --config ~/.config/nushell/config.nu --env-config ~/.config/nushell/env.nu
+command = /opt/homebrew/bin/nu --config ~/.config/nushell/config.nu
 theme = rose-pine-dawn
 window-padding-x = 8
 window-padding-y = 2
