@@ -2,7 +2,7 @@
 cask "1password"
 cask "cleanshot"
 cask "dash"
-cask "ghostty"
+cask "ghostty@tip"
 cask "lunar"
 cask "orion"
 cask "raycast"
