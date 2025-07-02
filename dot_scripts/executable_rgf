@@ -1,32 +1,38 @@
 #!/usr/bin/env nu
 
-let initial_query = ($env.ARGS | default [] | str join " ")
-let rg_prefix = "rg --hidden --column --line-number --no-heading --color=always --smart-case"
+const RG_PREFIX = 'rg --hidden --column --line-number --no-heading --color=always --smart-case '
 
-let selected = (
-    with-env [FZF_DEFAULT_COMMAND $"($rg_prefix) ($initial_query)"] {
-        fzf --ansi 
-            --color "hl:-1:underline,hl+:-1:underline:reverse" 
-            --disabled 
-            --query $initial_query 
-            --bind $"change:reload:sleep 0.1; ($rg_prefix) {q} || true" 
-            --bind "ctrl-f:unbind(change,ctrl-f)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-r)" 
-            --bind $"ctrl-r:unbind(ctrl-r)+change-prompt(1. ripgrep> )+disable-search+reload(($rg_prefix) {q} || true)+rebind(change,ctrl-f)" 
-            --prompt '1. ripgrep> ' 
-            --delimiter : 
-            --preview 'bat --color=always {1} --highlight-line {2}' 
+def main [...args] {
+    let query = ($args | str join ' ')
+    $env.FZF_DEFAULT_COMMAND = $RG_PREFIX + $query
+
+    let bind_change = 'change:reload:sleep 0.1; ' + $RG_PREFIX + '{q} || true'
+    let bind_ctrl_r = 'ctrl-r:unbind(ctrl-r)+change-prompt(1. ripgrep> )+disable-search+reload( ' + $RG_PREFIX + '{q} || true)+rebind(change,ctrl-f)'
+
+    let out = (
+        ^fzf
+            --ansi
+            --color "hl:-1:underline,hl+:-1:underline:reverse"
+            --disabled
+            --query $query
+            --bind $bind_change
+            --bind "ctrl-f:unbind(change,ctrl-f)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-r)"
+            --bind $bind_ctrl_r
+            --prompt '1. ripgrep> '
+            --delimiter ':'
+            --preview 'bat --color=always {1} --highlight-line {2}'
             --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
-    }
-)
+        | str trim
+    )
 
-if ($selected | is-not-empty) {
-    let parts = ($selected | split row ":")
-    let file = ($parts | get 0)
-    let line = ($parts | get 1)
-    
-    if ($env.EDITOR? | is-not-empty) {
-        ^$env.EDITOR $file $"+($line)"
-    } else {
-        print $"No EDITOR set. File: ($file), Line: ($line)"
+    if $out == '' { return }
+
+    let $parts = ($out | split row ':')
+
+    let $file = ($parts | get 0)
+    let $line = ($parts | get 1 | default 1 | into int)
+
+    if $file != '' {
+        ^$env.EDITOR $file ('+' + ($line | into string))
     }
 }
