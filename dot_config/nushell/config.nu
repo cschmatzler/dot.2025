@@ -38,13 +38,10 @@ alias ... = cd ../..
 # Aliases - Tools
 alias b = bat
 alias d = docker
-alias k = kubectl
-alias kx = kubectx
 alias ld = lazydocker
 alias lg = lazygit
 alias m = mise
 alias mr = mise run
-alias tf = terraform
 alias v = nvim
 alias vim = nvim
 
@@ -52,20 +49,12 @@ alias vim = nvim
 alias dcu = docker compose up -d
 alias dcud = docker compose -f docker-compose.dev.yml up -d
 
-# Git aliases
-let git_log_oneline_format = "%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n"
-let git_log_medium_format = "%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae >%n%C(bold)Date:%C(reset) %C(blue)%ai (%ar)%C(reset)%n%+B"
-
 alias g = git
 
 # Branch
 alias gb = git branch
 alias gbc = git switch -c
 alias gbs = git switch
-
-# Log
-def gl [] { git log --topo-order $"--pretty=format:($git_log_medium_format)" }
-def glo [] { git log --topo-order $"--pretty=format:($git_log_oneline_format)" }
 
 # Fetch
 alias gf = git fetch
