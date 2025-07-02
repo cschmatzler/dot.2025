@@ -38,9 +38,6 @@ alias ... = cd ../..
 # Aliases - Tools
 alias b = bat
 alias d = docker
-alias e = eza
-alias el = eza --long
-alias et = eza --tree
 alias k = kubectl
 alias kx = kubectx
 alias ld = lazydocker
