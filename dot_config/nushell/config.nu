@@ -114,5 +114,4 @@ def zg [] {
     }
 }
 
-# Clear command (equivalent to fish abbr)
 def c [] { clear }
