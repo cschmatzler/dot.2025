@@ -1,34 +1,33 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nu
 
-set -e
-
-echo "📦 Installing packages..."
+print "📦 Installing packages..."
 
 # Brew packages
-if command -v brew &>/dev/null; then
-  echo "🍺 Installing brew packages..."
-  brew update
-  brew upgrade
-  
+if (which brew | is-not-empty) {
+    print "🍺 Installing brew packages..."
+    brew update
+    brew upgrade
+    
 {{- if .personal | default false }}
-  cat $HOME/.config/brew/Brewfile.common $HOME/.config/brew/Brewfile.personal | brew bundle --file=-
+    let brewfile_content = (open $"($env.HOME)/.config/brew/Brewfile.common" | str trim) + "\n" + (open $"($env.HOME)/.config/brew/Brewfile.personal" | str trim)
 {{ else }}
-  cat $HOME/.config/brew/Brewfile.common $HOME/.config/brew/Brewfile.work | brew bundle --file=-
+    let brewfile_content = (open $"($env.HOME)/.config/brew/Brewfile.common" | str trim) + "\n" + (open $"($env.HOME)/.config/brew/Brewfile.work" | str trim)
 {{- end }}
-
-  brew upgrade --fetch-HEAD
-  echo "✅ Brew packages installed"
-else
-  echo "⚠️  brew not found, skipping..."
-fi
+    
+    $brewfile_content | brew bundle --file=-
+    brew upgrade --fetch-HEAD
+    print "✅ Brew packages installed"
+} else {
+    print "⚠️  brew not found, skipping..."
+}
 
 # Mise tools
-if command -v mise &>/dev/null; then
-  echo "🔧 Installing mise tools..."
-  mise install
-  echo "✅ Mise tools installed"
-else
-  echo "⚠️  mise not found, skipping..."
-fi
+if (which mise | is-not-empty) {
+    print "🔧 Installing mise tools..."
+    mise install
+    print "✅ Mise tools installed"
+} else {
+    print "⚠️  mise not found, skipping..."
+}
 
-echo "✅ All packages installed!"
+print "✅ All packages installed!"

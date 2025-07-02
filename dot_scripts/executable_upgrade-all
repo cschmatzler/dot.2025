@@ -1,51 +1,55 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nu
 
-set -euo pipefail
+print "🚀 Starting system upgrade..."
 
-echo "🚀 Starting system upgrade..."
+print "📦 Upgrading mise tools..."
+if (which mise | is-not-empty) {
+    mise upgrade --bump
 
-echo "📦 Upgrading mise tools..."
-if command -v mise &>/dev/null; then
-  mise upgrade --bump
+    if (which chezmoi | is-not-empty) {
+        print "📝 Adding mise config changes to chezmoi..."
+        chezmoi add ~/.config/mise/config.toml
 
-  if command -v chezmoi &>/dev/null; then
-    echo "📝 Adding mise config changes to chezmoi..."
-    chezmoi add ~/.config/mise/config.toml
+        print "💾 Committing mise config updates..."
+        let chezmoi_source_dir = (chezmoi source-path | str trim)
+        
+        try {
+            cd $chezmoi_source_dir
+            git add dot_config/mise/config.toml
+            git commit -m "Update mise tool versions
 
-    echo "💾 Committing mise config updates..."
-    CHEZMOI_SOURCE_DIR=$(chezmoi source-path)
-    (cd "$CHEZMOI_SOURCE_DIR" && git add dot_config/mise/config.toml && git commit -m "Update mise tool versions
+🤖 Auto-updated by upgrade-all script"
+        } catch {
+            print "ℹ️  No changes to commit for mise config"
+        }
+    }
 
-🤖 Auto-updated by upgrade-all script") || echo "ℹ️  No changes to commit for mise config"
-  fi
+    print "✅ mise tools upgraded"
+} else {
+    print "⚠️  mise not found, skipping..."
+}
 
-  echo "✅ mise tools upgraded"
-else
-  echo "⚠️  mise not found, skipping..."
-fi
+print "🍺 Upgrading brew packages..."
+if (which brew | is-not-empty) {
+    brew update
+    brew upgrade
 
-echo "🍺 Upgrading brew packages..."
-if command -v brew &>/dev/null; then
-  brew update
-  brew upgrade
+    print "🌙 Upgrading HEAD/nightly packages..."
+    brew upgrade --fetch-HEAD
 
-  echo "🌙 Upgrading HEAD/nightly packages..."
-  brew upgrade --fetch-HEAD
+    print "🧹 Cleaning up brew..."
+    brew cleanup
+    print "✅ brew packages upgraded"
+} else {
+    print "⚠️  brew not found, skipping..."
+}
 
-  echo "🧹 Cleaning up brew..."
-  brew cleanup
-  echo "✅ brew packages upgraded"
-else
-  echo "⚠️  brew not found, skipping..."
-fi
+print "🔌 Upgrading neovim plugins..."
+if (which nvim | is-not-empty) {
+    nvim --headless "+Lazy! sync" +qa
+    print "✅ neovim plugins upgraded"
+} else {
+    print "⚠️  neovim not found, skipping..."
+}
 
-echo "🔌 Upgrading neovim plugins..."
-if command -v nvim &>/dev/null; then
-  nvim --headless "+Lazy! sync" +qa
-  echo "✅ neovim plugins upgraded"
-else
-  echo "⚠️  neovim not found, skipping..."
-fi
-
-echo "🎉 All upgrades completed!"
-
+print "🎉 All upgrades completed!"

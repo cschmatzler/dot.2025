@@ -1,7 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nu
 
-gh api 'repos/:owner/:repo/pulls' |
-	jq --raw-output '.[] | "#\(.number) \(.title)"' |
-	fzf --prompt "pull request > " |
-	sed -E 's/^#([0-9]+).*/\1/' |
-	xargs gh pr checkout
+gh api 'repos/:owner/:repo/pulls' 
+| from json 
+| each { |pr| $"#($pr.number) ($pr.title)" } 
+| str join "\n" 
+| fzf --prompt "pull request > " 
+| str replace --regex '^#(\d+).*' '$1' 
+| str trim 
+| if ($in | is-empty) { exit } else { gh pr checkout $in }

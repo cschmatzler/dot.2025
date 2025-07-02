@@ -1,8 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nu
 
-set -e
-
-echo "⚙️  Updating macOS settings..."
+print "⚙️  Updating macOS settings..."
 
 # Disable Spotlight indexing
 sudo mdutil -a -i off
@@ -31,4 +29,4 @@ defaults write com.apple.finder ShowPathbar -bool true                     # Sho
 defaults write com.apple.finder ShowStatusBar -bool true                   # Show status bar
 killall Finder
 
-echo "✅ macOS settings updated!"
+print "✅ macOS settings updated!"
