@@ -10,7 +10,7 @@ font-feature = -dlig
 cursor-style = block
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 1.25
-shell-integration = nushell
+shell-integration = detect
 shell-integration-features = no-cursor
 keybind = global:ctrl+shift+space=toggle_quick_terminal
 
