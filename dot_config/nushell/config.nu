@@ -38,12 +38,12 @@ source atuin.nu
 # Tools
 $env.RIPGREP_CONFIG_PATH = ($env.HOME | path join ".config" "ripgrep" "config")
 $env.FZF_COMPLETE = "0"
-$env.FZF_DEFAULT_OPTS = "
-	--color=fg:$subtle,bg:$base,hl:$rose
-	--color=fg+:$text,bg+:$overlay,hl+:$rose
-	--color=border:$highlightMed,header:$pine,gutter:$base
-	--color=spinner:$gold,info:$foam
-	--color=pointer:$iris,marker:$love,prompt:$subtle"
+$env.FZF_DEFAULT_OPTS = "\
+--color=bg+:#CCD0DA,bg:#EFF1F5,spinner:#DC8A78,hl:#D20F39 \
+--color=fg:#4C4F69,header:#D20F39,info:#8839EF,pointer:#DC8A78 \
+--color=marker:#7287FD,fg+:#4C4F69,prompt:#8839EF,hl+:#D20F39 \
+--color=selected-bg:#BCC0CC \
+--color=border:#CCD0DA,label:#4C4F69"
 
 
 # Aliases 

@@ -16,7 +16,3 @@ format = "[ $branch]($style) "
 disabled = false
 added_style = 'bold green'
 format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
-
-[kubernetes]
-disabled = false
-format = '[ 󱃾 $context]($style) '
