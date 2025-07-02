@@ -1,4 +1,4 @@
-command = /opt/homebrew/bin/fish
+command = /opt/homebrew/bin/nu
 theme = rose-pine-dawn
 window-padding-x = 8
 window-padding-y = 2
