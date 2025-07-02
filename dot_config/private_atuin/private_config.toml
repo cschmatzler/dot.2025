@@ -2,6 +2,7 @@ enter_accept = true
 history_filter = [
    "^sst secret set",
 ]
+filter_mode_shell_up_key_binding = "session"
 
 [sync]
 records = true

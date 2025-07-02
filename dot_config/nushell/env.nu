@@ -1,14 +1,18 @@
-# Nushell Environment Configuration
+$env.EDITOR = "nvim"
+$env.VISUAL = $env.EDITOR
+$env.PAGER = "ov"
+$env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
+$env.ZK_NOTEBOOK_DIR = ($env.HOME | path join "Notebook")
+$env.RIPGREP_CONFIG_PATH = ($env.HOME | path join ".config" "ripgrep" "config")
 
-# This file is loaded before config.nu and is used for environment variables
-# that need to be available to all processes spawned from nushell
+$env.PATH = ($env.PATH | split row (char esep) | prepend [
+    ($env.HOME | path join ".local" "bin")
+    ($env.HOME | path join ".scripts")
+    "/opt/homebrew/bin"
+])
 
-# Starship prompt
-$env.STARSHIP_SHELL = "nu"
-$env.PROMPT_COMMAND = { starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)' }
-$env.PROMPT_COMMAND_RIGHT = { starship prompt --right --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)' }
+$env.FZF_COMPLETE = "0"
 
-# Vi mode indicators (remove default colon)
 $env.PROMPT_INDICATOR_VI_INSERT = ""
 $env.PROMPT_INDICATOR_VI_NORMAL = ""
 

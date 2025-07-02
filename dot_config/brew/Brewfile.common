@@ -14,6 +14,9 @@ mas "Yubico Authenticator", id: 1497506650
 cask "font-iosevka-nerd-font"
 
 # Utilities
+brew "atuin"
+brew "zoxide"
+brew "starship"
 brew "cosign"
 brew "docker"
 brew "docker-buildx"

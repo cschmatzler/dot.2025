@@ -1,23 +1,5 @@
 # Nushell Configuration
 
-# Environment variables
-$env.EDITOR = "nvim"
-$env.VISUAL = $env.EDITOR
-$env.PAGER = "ov"
-$env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
-$env.ZK_NOTEBOOK_DIR = ($env.HOME | path join "Notebook")
-$env.RIPGREP_CONFIG_PATH = ($env.HOME | path join ".config" "ripgrep" "config")
-
-# Path configuration
-$env.PATH = ($env.PATH | split row (char esep) | prepend [
-    ($env.HOME | path join ".local" "bin")
-    ($env.HOME | path join ".scripts")
-    "/opt/homebrew/bin"
-])
-
-# FZF configuration (disable complete like in fish)
-$env.FZF_COMPLETE = "0"
-
 # Configuration
 $env.config = {
     show_banner: false
@@ -33,13 +15,20 @@ $env.config = {
     ]
 }
 
-# Tool integrations
-# Mise activation
-# Tool integrations
-source ~/.cache/mise/init.nu
-source ~/.cache/starship/init.nu
-source ~/.cache/zoxide/init.nu
-source ~/.cache/atuin/init.nu
+mkdir ($nu.user-autoload-dirs | first)
+if (which mise | is-not-empty) {
+    mise activate nu | save -f ($nu.user-autoload-dirs | first | path join "mise.nu")
+}
+if (which starship | is-not-empty) {
+    $env.STARSHIP_SHELL = "nu"
+    starship init nu | save -f ($nu.user-autoload-dirs | first | path join "starship.nu")
+}
+if (which zoxide | is-not-empty) {
+    zoxide init nushell | save -f ($nu.user-autoload-dirs | first | path join "zoxide.nu")
+}
+if (which atuin | is-not-empty) {
+    atuin init nu | save -f ($nu.user-autoload-dirs | first | path join "atuin.nu")
+}
 
 
 # Aliases - Basic navigation
