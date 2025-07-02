@@ -35,18 +35,11 @@ $env.config = {
 
 # Tool integrations
 # Mise activation
-if ($env.HOME | path join ".cache" "mise" "init.nu" | path exists) {
-    source ~/.cache/mise/init.nu
-}
-if ($env.HOME | path join ".cache" "starship" "init.nu" | path exists) {
-    source ~/.cache/starship/init.nu
-}
-if ($env.HOME | path join ".cache" "zoxide" "init.nu" | path exists) {
-    source ~/.cache/zoxide/init.nu
-}
-if ($env.HOME | path join ".cache" "atuin" "init.nu" | path exists) {
-    source ~/.cache/atuin/init.nu
-}
+# Tool integrations
+source ~/.cache/mise/init.nu
+source ~/.cache/starship/init.nu
+source ~/.cache/zoxide/init.nu
+source ~/.cache/atuin/init.nu
 
 
 # Aliases - Basic navigation
