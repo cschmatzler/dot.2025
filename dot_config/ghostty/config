@@ -17,24 +17,28 @@ keybind = global:ctrl+shift+space=toggle_quick_terminal
 keybind = shift+enter=text:\n
 
 # Custom keybindings
-# Command+Shift+Number opens tab with the number
-keybind = super+shift+one=goto_tab:1
-keybind = super+shift+two=goto_tab:2
-keybind = super+shift+three=goto_tab:3
-keybind = super+shift+four=goto_tab:4
-keybind = super+shift+five=goto_tab:5
-keybind = super+shift+six=goto_tab:6
-keybind = super+shift+seven=goto_tab:7
-keybind = super+shift+eight=goto_tab:8
-keybind = super+shift+nine=goto_tab:9
+# Control+Number opens tab with the number
+keybind = ctrl+one=goto_tab:1
+keybind = ctrl+two=goto_tab:2
+keybind = ctrl+three=goto_tab:3
+keybind = ctrl+four=goto_tab:4
+keybind = ctrl+five=goto_tab:5
+keybind = ctrl+six=goto_tab:6
+keybind = ctrl+seven=goto_tab:7
+keybind = ctrl+eight=goto_tab:8
+keybind = ctrl+nine=goto_tab:9
 
-# Command+Shift+Arrow left/right chooses tab to left and right
-keybind = super+shift+left=previous_tab
-keybind = super+shift+right=next_tab
+# Control+Arrow left/right chooses tab to left and right
+keybind = ctrl+left=previous_tab
+keybind = ctrl+right=next_tab
 
-# Command+Shift+H/L chooses tab to left and right (vim style)
-keybind = super+shift+h=previous_tab
-keybind = super+shift+l=next_tab
+# Control+H/L chooses tab to left and right (vim style)
+keybind = ctrl+h=previous_tab
+keybind = ctrl+l=next_tab
+
+# Control+M/I chooses tab to left and right (colemak style)
+keybind = ctrl+m=previous_tab
+keybind = ctrl+i=next_tab
 
 # Control+Shift+Arrow left/right chooses pane to left and right
 keybind = ctrl+shift+left=goto_split:left
@@ -45,6 +49,12 @@ keybind = ctrl+shift+h=goto_split:left
 keybind = ctrl+shift+j=goto_split:down
 keybind = ctrl+shift+k=goto_split:up
 keybind = ctrl+shift+l=goto_split:right
+
+# Control+Shift+M/N/E/I chooses pane in colemak directions
+keybind = ctrl+shift+m=goto_split:left
+keybind = ctrl+shift+n=goto_split:down
+keybind = ctrl+shift+e=goto_split:up
+keybind = ctrl+shift+i=goto_split:right
 
 # Control+Shift+Enter splits to the right
 keybind = ctrl+shift+enter=new_split:right
