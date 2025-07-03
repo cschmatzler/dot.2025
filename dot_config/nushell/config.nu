@@ -1,9 +1,9 @@
 # Environment
-$env.PATH ++= [
+$env.PATH = [
   ($env.HOME | path join ".local" "bin"),
   ($env.HOME | path join ".scripts"),
   "/opt/homebrew/bin"
-]
+] ++ $env.PATH
 
 $env.EDITOR = "nvim"
 $env.VISUAL = $env.EDITOR
