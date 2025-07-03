@@ -18,15 +18,6 @@ $env.PROMPT_INDICATOR_VI_NORMAL = ""
 $env.config = {
     show_banner: false
     edit_mode: vi,
-    keybindings: [
-        {
-            name: atuin_ctrl_h
-            modifier: control
-            keycode: char_h
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: executehostcommand cmd: "atuin search --interactive" }
-        }
-    ]
 }
 
 # Plugins
