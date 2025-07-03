@@ -50,12 +50,6 @@ keybind = ctrl+shift+j=goto_split:down
 keybind = ctrl+shift+k=goto_split:up
 keybind = ctrl+shift+l=goto_split:right
 
-# Control+Shift+M/N/E/I chooses pane in colemak directions
-keybind = ctrl+shift+m=goto_split:left
-keybind = ctrl+shift+n=goto_split:down
-keybind = ctrl+shift+e=goto_split:up
-keybind = ctrl+shift+i=goto_split:right
-
 # Control+Shift+Enter splits to the right
 keybind = ctrl+shift+enter=new_split:right
 
