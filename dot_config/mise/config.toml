@@ -1,8 +1,8 @@
 [tools]
-bun = "1.2.17"
+bun = "1.2.18"
 node = "24.3.0"
 python = "3.13.5"
-"npm:opencode-ai" = "0.1.185"
+"npm:opencode-ai" = "0.1.189"
 "npm:typescript-language-server" = "4.3.4"
 
 [env]
