@@ -3,8 +3,10 @@
 print "🖥️  Setting up dock..."
 
 dockutil --remove all --no-restart
-dockutil --add "/Applications/Orion.app" --no-restart
+dockutil --add "/Applications/Dia.app" --no-restart
 dockutil --add "/Applications/Ghostty.app" --no-restart
+dockutil --add "/Applications/Spotify.app" --no-restart
+dockutil --add "/Applications/WhatsApp.app" --no-restart
 dockutil --add "/System/Applications/Utilities/Activity Monitor.app" --no-restart
 dockutil --add "/System/Applications/System Settings.app" --no-restart
 
