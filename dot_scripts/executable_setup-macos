@@ -29,4 +29,15 @@ defaults write com.apple.finder ShowPathbar -bool true                     # Sho
 defaults write com.apple.finder ShowStatusBar -bool true                   # Show status bar
 killall Finder
 
+# Disable keyboard shortcuts
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 28 '<dict><key>enabled</key><false/></dict>'  # Cmd+Shift+3 (screenshot)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 29 '<dict><key>enabled</key><false/></dict>'  # Cmd+Shift+4 (screenshot selection)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 30 '<dict><key>enabled</key><false/></dict>'  # Cmd+Shift+5 (screenshot options)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 '<dict><key>enabled</key><false/></dict>'  # Cmd+Space (Spotlight)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 '<dict><key>enabled</key><false/></dict>'  # Cmd+Option+Space (Spotlight)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 32 '<dict><key>enabled</key><false/></dict>'  # Mission Control
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 34 '<dict><key>enabled</key><false/></dict>'  # Show Desktop
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 33 '<dict><key>enabled</key><false/></dict>'  # Application Windows
+killall SystemUIServer
+
 print "✅ macOS settings updated!"
