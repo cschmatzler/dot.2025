@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
+name: mise
+description: Unified runtime & task manager
+
+commands:
+  - name: run
+    description: Run a task defined in mise-tasks
+    completion:
+      positional:
+        - ["$(mise tasks ls --json | jq -r '.[].name')"]
+    documentation:
+      positional: ["task"]

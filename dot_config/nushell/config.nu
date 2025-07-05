@@ -11,6 +11,10 @@ $env.PAGER = "ov"
 $env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
 $env.ZK_NOTEBOOK_DIR = ($env.HOME | path join "Notebook")
 
+let carapace_completer = {|spans|
+    carapace $spans.0 nushell ...$spans | from json
+}
+
 # Nushell
 source theme.nu
 $env.PROMPT_INDICATOR_VI_INSERT = ""
@@ -18,6 +22,12 @@ $env.PROMPT_INDICATOR_VI_NORMAL = ""
 $env.config = {
     show_banner: false
     edit_mode: vi,
+    completions: {
+        external: {
+            enable: true
+            completer: $carapace_completer
+        }
+    }
 }
 
 # Plugins
@@ -74,5 +84,4 @@ alias gs = git stash
 alias gsa = git stash apply
 alias gsd = git stash drop
 alias gsp = git stash pop
-
 
