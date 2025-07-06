@@ -41,11 +41,11 @@ $env.LS_COLORS = (vivid generate catppuccin-macchiato | str trim)
 $env.RIPGREP_CONFIG_PATH = ($env.HOME | path join ".config" "ripgrep" "config")
 $env.FZF_COMPLETE = "0"
 $env.FZF_DEFAULT_OPTS = "
---color=bg+:#CCD0DA,bg:#EFF1F5,spinner:#DC8A78,hl:#D20F39
---color=fg:#4C4F69,header:#D20F39,info:#8839EF,pointer:#DC8A78
---color=marker:#7287FD,fg+:#4C4F69,prompt:#8839EF,hl+:#D20F39
---color=selected-bg:#BCC0CC
---color=border:#CCD0DA,label:#4C4F69"
+--color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 
+--color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 
+--color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 
+--color=selected-bg:#494D64 
+--color=border:#363A4F,label:#CAD3F5"
 
 # Aliases 
 alias .. = cd ..
