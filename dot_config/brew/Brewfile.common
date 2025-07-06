@@ -4,11 +4,11 @@ cask "cleanshot"
 cask "dash"
 cask "ghostty@tip"
 cask "lunar"
-cask "thebrowsercompany-dia"
+cask "orbstack"
 cask "raycast"
 cask "spotify"
+cask "thebrowsercompany-dia"
 cask "whatsapp"
-mas "Yubico Authenticator", id: 1497506650
 
 # Fonts
 cask "font-iosevka-nerd-font"
