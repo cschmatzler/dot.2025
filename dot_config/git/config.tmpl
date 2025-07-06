@@ -1,6 +1,11 @@
+# Theme and UI
 [include]
   path = ~/.config/git/catppuccin-macchiato.gitconfig
 
+[delta]
+  features = catppuccin-macchiato
+
+# User Identity & Signing
 [user]
   name = Christoph Schmatzler
 {{- if .work }}
@@ -11,13 +16,6 @@
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOoTwh9PyFzN7YRmmPrEOyAO92NxlgqkORVO7rn5EKH1
 {{- end }}
 
-[core]
-  editor = nvim
-  pager = delta
-
-[interactive]
-  diffFilter = delta --color-only
-
 [commit]
   gpgsign = true
 
@@ -27,6 +25,15 @@
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
+# Core Settings
+[core]
+  editor = nvim
+  pager = delta
+
+[init]
+  defaultBranch = main
+
+# Remote Operations
 [fetch]
   prune = true
 
@@ -35,29 +42,33 @@
 
 [push]
   autoSetupRemote = true
-  default = simple
 
-[merge]
-  conflictstyle = diff3
+[branch]
+  autoSetupRebase = always
 
+# Diff & Merge Tools
 [diff]
   colorMoved = default
   tool = difftastic
 
-[difftool]
-  prompt = false
-
 [difftool "difftastic"]
   cmd = difft "$LOCAL" "$REMOTE"
+
+[merge]
+  conflictstyle = diff3
+
+[interactive]
+  diffFilter = delta --color-only
 
 [pager]
   difftool = true
 
+# Workflow Enhancements
 [rerere]
-	enabled = true
+  enabled = true
 
-[delta]
-  features = catppuccin-macchiato
-  
-[init]
-	defaultBranch = main
+[status]
+  showUntrackedFiles = all
+
+[log]
+  date = iso
