@@ -3,3 +3,6 @@ cask "1password-cli"
 cask "affinity-photo"
 cask "daisydisk"
 cask "tailscale-app"
+
+# Utilities
+brew "aerc", args: ["HEAD"]
