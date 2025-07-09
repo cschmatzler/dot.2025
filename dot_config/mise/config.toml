@@ -2,7 +2,7 @@
 bun = "1.2.18"
 node = "24.3.0"
 python = "3.13.5"
-"npm:opencode-ai" = "0.2.5"
+"npm:opencode-ai" = "0.2.13"
 "npm:typescript-language-server" = "4.3.4"
 
 [env]
