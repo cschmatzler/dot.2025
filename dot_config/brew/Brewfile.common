@@ -34,7 +34,7 @@ brew "k9s"
 brew "lazydocker"
 brew "lazygit"
 brew "mise"
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 brew "notmuch"
 brew "nushell"
 brew "openssh"
