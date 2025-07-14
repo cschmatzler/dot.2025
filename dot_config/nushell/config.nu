@@ -11,8 +11,18 @@ $env.PAGER = "ov"
 $env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
 $env.ZK_NOTEBOOK_DIR = ($env.HOME | path join "Notebook")
 
-let carapace_completer = {|spans|
-    carapace $spans.0 nushell ...$spans | from json
+let fish_completer = {|spans|
+    fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
+    | from tsv --flexible --noheaders --no-infer
+    | rename value description
+    | update value {|row|
+      let value = $row.value
+      let need_quote = ['\' ',' '[' ']' '(' ')' ' ' '\t' "'" '"' "`"] | any {$in in $value}
+      if ($need_quote and ($value | path exists)) {
+        let expanded_path = if ($value starts-with ~) {$value | path expand --no-symlink} else {$value}
+        $'"($expanded_path | str replace --all "\"" "\\\"")"'
+      } else {$value}
+    }
 }
 
 # Nushell
@@ -25,7 +35,7 @@ $env.config = {
     completions: {
         external: {
             enable: true
-            completer: $carapace_completer
+            completer: $fish_completer
         }
     }
 }

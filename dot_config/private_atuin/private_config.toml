@@ -1,5 +1,5 @@
 enter_accept = true
-inline_height = 3
+inline_height = 12
 history_filter = [
    "^sst secret set",
 ]
