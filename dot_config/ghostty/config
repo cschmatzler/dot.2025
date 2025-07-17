@@ -36,10 +36,6 @@ keybind = ctrl+right=next_tab
 keybind = ctrl+h=previous_tab
 keybind = ctrl+l=next_tab
 
-# Control+M/I chooses tab to left and right (colemak style)
-keybind = ctrl+m=previous_tab
-keybind = ctrl+i=next_tab
-
 # Control+Shift+Arrow left/right chooses pane to left and right
 keybind = ctrl+shift+left=goto_split:left
 keybind = ctrl+shift+right=goto_split:right
@@ -52,6 +48,9 @@ keybind = ctrl+shift+l=goto_split:right
 
 # Control+Shift+Enter splits to the right
 keybind = ctrl+shift+enter=new_split:right
+
+# Control+W closes current tab
+keybind = ctrl+w=close_tab
 
 # Control+Shift+W closes current pane
 keybind = ctrl+shift+w=close_surface
