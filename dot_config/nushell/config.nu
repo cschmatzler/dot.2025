@@ -47,7 +47,7 @@ source zoxide.nu
 source atuin.nu
 
 # Tools
-$env.LS_COLORS = (vivid generate catppuccin-macchiato | str trim)
+$env.LS_COLORS = (vivid generate catppuccin-latte | str trim)
 $env.RIPGREP_CONFIG_PATH = ($env.HOME | path join ".config" "ripgrep" "config")
 $env.FZF_COMPLETE = "0"
 $env.FZF_DEFAULT_OPTS = "
