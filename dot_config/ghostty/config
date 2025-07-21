@@ -16,8 +16,6 @@ keybind = global:ctrl+shift+space=toggle_quick_terminal
 
 keybind = shift+enter=text:\n
 
-# Custom keybindings
-# Control+Number opens tab with the number
 keybind = ctrl+one=goto_tab:1
 keybind = ctrl+two=goto_tab:2
 keybind = ctrl+three=goto_tab:3
@@ -28,29 +26,22 @@ keybind = ctrl+seven=goto_tab:7
 keybind = ctrl+eight=goto_tab:8
 keybind = ctrl+nine=goto_tab:9
 
-# Control+Arrow left/right chooses tab to left and right
 keybind = ctrl+left=previous_tab
 keybind = ctrl+right=next_tab
 
-# Control+H/L chooses tab to left and right (vim style)
 keybind = ctrl+h=previous_tab
 keybind = ctrl+l=next_tab
 
-# Control+Shift+Arrow left/right chooses pane to left and right
 keybind = ctrl+shift+left=goto_split:left
 keybind = ctrl+shift+right=goto_split:right
 
-# Control+Shift+H/J/K/L chooses pane in vim directions
 keybind = ctrl+shift+h=goto_split:left
 keybind = ctrl+shift+j=goto_split:down
 keybind = ctrl+shift+k=goto_split:up
 keybind = ctrl+shift+l=goto_split:right
 
-# Control+Shift+Enter splits to the right
 keybind = ctrl+shift+enter=new_split:right
 
-# Control+W closes current tab
+keybind = ctrl+t=new_tab
 keybind = ctrl+w=close_tab
-
-# Control+Shift+W closes current pane
 keybind = ctrl+shift+w=close_surface
