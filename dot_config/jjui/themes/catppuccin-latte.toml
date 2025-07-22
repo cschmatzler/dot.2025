@@ -1,0 +1,40 @@
+"text" = { fg = "#4c4f69", bg = "#eff1f5" }
+"dimmed" = { fg = "#6c6f85" }
+"selected" = { bg = "#ccd0da", fg = "#4c4f69" }
+"border" = { fg = "#6c6f85" }
+"title" = { fg = "#1e66f5", bold = true }
+"shortcut" = { fg = "#8839ef" }
+"matched" = { fg = "#df8e1d", underline = true }
+"source_marker" = { bg = "#40a02b", fg = "#eff1f5" }
+"target_marker" = { bg = "#d20f39", fg = "#eff1f5" }
+"revisions rebase source_marker" = { bold = true }
+"revisions rebase target_marker" = { bold = true }
+"status" = { bg = "#e6e9ef" }
+"status title" = { fg = "#eff1f5", bg = "#1e66f5", bold = true }
+"status shortcut" = { fg = "#8839ef" }
+"status dimmed" = { fg = "#6c6f85" }
+"revset text" = { bold = true }
+"revset completion selected" = { bg = "#ccd0da", fg = "#4c4f69" }
+"revset completion matched" = { bold = true }
+"revset completion dimmed" = { fg = "#9ca0b0" }
+"revisions selected" = { bold = true }
+"oplog selected" = { bold = true }
+"evelog selected" = { bg = "#df8e1d", fg = "#eff1f5", bold = true }
+"help" = { bg = "#ccd0da" }
+"help title" = { fg = "#1e66f5", bold = true, underline = true }
+"help border" = { fg = "#6c6f85" }
+"menu" = { bg = "#ccd0da" }
+"menu title" = { fg = "#1e66f5", bold = true }
+"menu shortcut" = { fg = "#8839ef" }
+"menu dimmed" = { fg = "#6c6f85" }
+"menu border" = { fg = "#8839ef" }
+"menu selected" = { bg = "#ccd0da", fg = "#4c4f69" }
+"confirmation" = { bg = "#ccd0da" }
+"confirmation text" = { fg = "#4c4f69" }
+"confirmation selected" = { bg = "#ccd0da", fg = "#4c4f69" }
+"confirmation dimmed" = { fg = "#6c6f85" }
+"confirmation border" = { fg = "#8839ef" }
+"undo" = { bg = "#ccd0da" }
+"undo confirmation dimmed" = { fg = "#6c6f85" }
+"undo confirmation selected" = { bg = "#ccd0da", fg = "#4c4f69" }
+"preview" = { fg = "#4c4f69" }
