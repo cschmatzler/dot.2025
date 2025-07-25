@@ -1,3 +1,6 @@
 # Applications
 cask "slack"
 cask "tuple"
+
+brew "postgresql@17"
+brew "libpq", link: true
