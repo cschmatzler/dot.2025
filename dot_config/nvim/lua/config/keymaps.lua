@@ -1,2 +1,5 @@
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<leader>gg", function()
+	Snacks.terminal({ "jjui" }, { cwd = LazyVim.root.get() })
+end, { desc = "jjui" })
