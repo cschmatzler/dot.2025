@@ -2,7 +2,8 @@
 bun = "1.2.19"
 node = "24.4.1"
 python = "3.13.5"
-"npm:opencode-ai" = "0.3.54"
+"npm:opencode-ai" = "0.3.67"
+"npm:@sourcegraph/amp" = "latest"
 "npm:typescript-language-server" = "4.3.4"
 
 [env]
