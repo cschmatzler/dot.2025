@@ -7,7 +7,6 @@ cask "lunar"
 cask "orbstack"
 cask "raycast"
 cask "spotify"
-cask "thebrowsercompany-dia"
 cask "whatsapp"
 
 # Fonts
